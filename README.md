@@ -18,8 +18,8 @@ Docker should ideally be running in [rootless mode](https://docs.docker.com/engi
 ```
 cd $HOME/.config
 git clone https://github.com/HumphreyBoaGart/vmask
-chmod u+rx $HOME/.config/vmask/vmask.sh
-ln -s $HOME/.config/vmask/vmask.sh $HOME/.local/bin/vmask
+chmod u+rx vmask/vmask.sh
+ln -s vmask/vmask.sh $HOME/.local/bin/vmask
 ```
 
 Make sure your environment's `$HOME` variable is set to your home directory, or you're going to have a hard time with, well, everything. You can check if it is set by running `printenv HOME`.
@@ -52,7 +52,7 @@ Or, to bypass interactive mode:
 vmask new MASKNAME PORT
 ```
 
-#### Note on ports
+#### Note on ports:
 Do not put two masks on the same port! If you are only pulling out one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
 
 ### Delete a mask from storage
@@ -74,18 +74,7 @@ For remote vmask installs, replace localhost with your server's IP address.
 
 **IMPORTANT:** I highly recommend using HTTPS for remote use. (See: **Enabling SSL**, below.)
 
-## Customization
-The default settings profile for all new masks is stored in `skel/compose.yaml`. When you create a new mask with `vmask new`, it creates a new directory for that mask in `data/`. Then it creates a copy of this file, saves it to that new directory, and populates it with the attibutes you define.
-
-This means there are **two types** of `compose.yaml` files: One for new masks in `skel/`, and another for existing masks in `data/`.
-
-To edit the default profile from which all new masks will be derived, just edit `skel/compose.yaml` with your favorite text editor.
-
-To edit existing profiles on a case-by-case basis, edit `data/MASKNAME/compose.yaml`.
-
-The following customizations can be made to both types of files:
-
-### Configuring Wireguard
+## Configuring Wireguard
 Wireguard is only partially configured by default. You will need to edit the following variables on **Lines 13-17** in `compose.yaml` to finish the setup for each mask:
 - WIREGUARD_ENDPOINT_IP
 - WIREGUARD_ENDPOINT_PORT
@@ -96,6 +85,17 @@ Wireguard is only partially configured by default. You will need to edit the fol
 You can also set these options in the skel configuration, if you don't mind all your masks using the same VPN. However, that kinda defeats the purpose of this whole script!
 
 Eventually I may add this to the `vmask new` command, but I wanted to leave it flexible enough for end-users to implement all the other VPN options that I personally do not use. (See: **Other VPN Options**, below.)
+
+## Customization
+The default settings profile for all new masks is stored in `skel/compose.yaml`. When you create a new mask with `vmask new`, it creates a new directory for that mask in `data/`. Then it creates a copy of this file, saves it to that new directory, and populates it with the attibutes you define.
+
+This means there are **two types** of `compose.yaml` files: One for new masks in `skel/`, and another for existing masks in `data/`.
+
+To edit the default profile from which all new masks will be derived, just edit `skel/compose.yaml` with your favorite text editor.
+
+To edit existing profiles on a case-by-case basis, edit `data/MASKNAME/compose.yaml`.
+
+The following customizations can be made to both types of files:
 
 ### Other VPN Options
 Gluetun supports a myriad of VPN options and providers, all of which can be implemented in `compose.yaml`. For a full list of other VPN options you can implement, see the [Gluetun wiki](https://github.com/qdm12/gluetun-wiki/blob/main/setup/readme.md).
