@@ -15,10 +15,9 @@ The VPN connection is configured using [Gluetun](https://github.com/qdm12/gluetu
 Docker should ideally be running in [rootless mode](https://docs.docker.com/engine/security/rootless/), since running a web browser as root is a ***very bad idea***.
 
 ## Installation
-				Lorem ipsum installation instructions
-
-
 ```
+cd $HOME/.config
+git clone https://github.com/HumphreyBoaGart/vmask
 chmod u+rx $HOME/.config/vmask/vmask.sh
 ln -s $HOME/.config/vmask/vmask.sh $HOME/.local/bin/vmask
 ```
