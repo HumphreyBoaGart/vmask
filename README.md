@@ -52,7 +52,7 @@ Or, to bypass interactive mode:
 vmask new MASKNAME PORT
 ```
 
-##### Note on ports
+#### Note on ports
 Do not put two masks on the same port! If you are only pulling out one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
 
 ### Delete a mask from storage
