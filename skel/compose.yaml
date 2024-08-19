@@ -1,0 +1,30 @@
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: {{MASKNAME}}-gluetun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - {{PORTNUM}}:3000
+    environment:
+      - TZ=America/New_York
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      - WIREGUARD_ENDPOINT_IP=
+      - WIREGUARD_ENDPOINT_PORT=
+      - WIREGUARD_PUBLIC_KEY=
+      - WIREGUARD_PRIVATE_KEY=
+      - WIREGUARD_ADDRESSES=
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    restart: unless-stopped 
+  firefox:
+    image: lscr.io/linuxserver/firefox:latest
+    container_name: {{MASKNAME}}-firefox
+    environment:
+      - TZ=America/New_York
+    volumes:
+      - /home/{{HOMEUSER}}/.config/vmask/data/{{MASKNAME}}/storage:/config
+    network_mode: "service:gluetun"
+    shm_size: "1gb"
+    restart: unless-stopped  
