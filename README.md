@@ -3,7 +3,7 @@
 
 **vmask.sh** (short for **v**nc **mask**) is a shell script utility for deploying and managing sockpuppets, which we will also refer to here as ***masks***.
 
-Using Docker, each mask is set up with its own dedicated web browser and VPN profile. This lets you easily set aside compartmentalized environments for each of your sockpuppets, ensuring that no two sockpuppets connect to the internet from the same IP address.
+Using Docker, each mask is set up with its own dedicated web browser and VPN profile. This lets you easily set aside compartmentalized environments (with their own unique sets of cookies, sessions & bookmarks) for each of your sockpuppets, ensuring that no two sockpuppets connect to the internet from the same IP address.
 
 The web browser is [linuxserver.io's Firefox image](https://docs.linuxserver.io/images/docker-firefox/), which is encased in KasmVNC and accessed via the desired port on any other web browser. This means you can store all your masks in the cloud, on any server or VPS that has Docker installed. *(Direct X11/Wayland access not available. I am working on a companion script with a different browser image for that.)*
 
@@ -57,7 +57,7 @@ vmask new MASKNAME PORT
 New masks are saved in an inactive state by default. To use a freshly-generated mask, you will need to first [Configure Wireguard](#configuring-wireguard), and then run `vmask on`.
 
 #### Note on ports:
-Do not put two masks on the same port! If you are only pulling one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
+Do not put two masks on the same port! If you are only pulling one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port. (You do not need to run sudo yourself, it is baked into the script on this command.)
 
 ### Delete a mask from storage (requires sudo)
 ```
