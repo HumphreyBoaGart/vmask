@@ -3,7 +3,7 @@
 
 **vmask.sh** (short for **v**nc **mask**) is a shell script utility for deploying and managing sockpuppets, which we will also refer to here as ***masks***.
 
-Using Docker, each mask is set up with its own dedicated web browser and VPN profile. This lets you easily set aside compartmentalized environments (with their own unique sets of cookies, sessions & bookmarks) for each of your sockpuppets, ensuring that no two sockpuppets connect to the internet from the same IP address.
+Using Docker, each mask is given its own dedicated web browser and VPN profile. This lets you easily set aside compartmentalized environments (with their own unique sets of cookies, sessions & bookmarks) for each of your sockpuppets, ensuring that no two sockpuppets connect to the internet from the same IP address.
 
 The web browser is [linuxserver.io's Firefox image](https://docs.linuxserver.io/images/docker-firefox/), which is encased in KasmVNC and accessed via the desired port on any other web browser. This means you can store all your masks in the cloud, on any server or VPS that has Docker installed. *(Direct X11/Wayland access not available. I am working on a companion script with a different browser image for that.)*
 
