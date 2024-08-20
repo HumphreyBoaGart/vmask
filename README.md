@@ -7,7 +7,7 @@ Using Docker, each mask is set up with its own dedicated web browser and VPN pro
 
 The web browser is [linuxserver.io's Firefox image](https://docs.linuxserver.io/images/docker-firefox/), which is encased in KasmVNC and accessed via the desired port on any other web browser. This means you can store all your masks in the cloud, on any server or VPS that has Docker installed. *(Direct X11/Wayland access not available. I am working on a companion script with a different browser image for that.)*
 
-The VPN connection is implemented by forcing the browser to go through [Gluetun](https://github.com/qdm12/gluetun). By default, our configuration uses Wireguard, but all other Gluetun-compatible VPN modes are supported as well. (See: [Configuring Wireguard](#configuring-wireguard) and [Other VPN Options](#other-vpn-options), below.)
+The VPN connection is implemented by forcing the browser to go through [Gluetun](https://github.com/qdm12/gluetun). By default, our configuration uses Wireguard, but all other Gluetun-compatible VPN modes are supported as well. (See: [Configuring Wireguard](#wireguard) and [Other VPN Options](#other-vpn-options), below.)
 
 The way this is set up, it lets us use a single browser image as the base, which in turn is cloned into a unique container environment when the mask is "put on." 
 Upon taking the mask off, only the mask's settings/cookies/bookmarks/etc are saved, and the rest of the container is Permanently Erased. Putting the mask back on generates a fresh instance of the browser container, with that masks's personal data preserved. This keeps disk space consumption at a minimum, while still providing the opsec benefits of containerization.
@@ -57,7 +57,7 @@ Or, to bypass interactive mode:
 vmask new MASKNAME PORT
 ```
 
-New masks are saved in an inactive state by default. To use a freshly-generated mask, you will need to first [Configure Wireguard](#configuring-wireguard), and then run `vmask on`.
+New masks are saved in an inactive state by default. To use a freshly-generated mask, you will need to first [Configure Wireguard](#wireguard), and then run `vmask on`.
 
 #### Note on ports:
 Do not put two masks on the same port! If you are only pulling one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
@@ -83,17 +83,7 @@ For remote vmask installs, replace localhost with your server's IP address.
 
 **IMPORTANT:** I highly recommend using HTTPS for remote use. (See: [Enabling SSL](#enabling-ssl), below.)
 
-## Configuring Wireguard
-Wireguard is only partially configured by default. You will need to edit the following variables on **Lines 13-17** in `compose.yaml` to finish the setup for each mask:
-- WIREGUARD_ENDPOINT_IP
-- WIREGUARD_ENDPOINT_PORT
-- WIREGUARD_PUBLIC_KEY
-- WIREGUARD_PRIVATE_KEY
-- WIREGUARD_ADDRESSES
-
-Eventually I may add Wireguard configuration to the `vmask new` command, but I wanted to leave things flexible enough for end-users to implement all the other Gluetun VPN options that I personally do not use. (See: [Other VPN Options](#other-vpn-options), below.)
-
-## Customization
+## Configuration
 The default settings profile for all new masks is stored in `skel/compose.yaml`. When you create a new mask with `vmask new`, it creates a new directory for that mask in `data/`. Then it creates a copy of this file, saves it to that new directory, and populates it with the attibutes you define.
 
 This means there are **two types** of `compose.yaml` files: One for new masks in `skel/`, and another for existing masks in `data/`.
@@ -103,6 +93,16 @@ To edit the default profile from which all new masks will be derived, just edit 
 To edit existing profiles on a case-by-case basis, edit `data/MASKNAME/compose.yaml`.
 
 The following customizations can be made to both types of files:
+
+## Wireguard
+Wireguard is only partially configured by default. You will need to edit the following variables on **Lines 13-17** in `compose.yaml` to finish the setup for each mask:
+- WIREGUARD_ENDPOINT_IP
+- WIREGUARD_ENDPOINT_PORT
+- WIREGUARD_PUBLIC_KEY
+- WIREGUARD_PRIVATE_KEY
+- WIREGUARD_ADDRESSES
+
+Eventually I may add Wireguard configuration to the `vmask new` command, but I wanted to leave things flexible enough for end-users to implement all the other Gluetun VPN options that I personally do not use. (See: [Other VPN Options](#other-vpn-options), below.)
 
 ### Other VPN Options
 Gluetun supports a myriad of VPN options and providers, all of which can be implemented in `compose.yaml`. For a full list of other VPN options you can implement, see the [Gluetun wiki](https://github.com/qdm12/gluetun-wiki/blob/main/setup/readme.md).
