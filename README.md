@@ -94,7 +94,7 @@ To edit existing profiles on a case-by-case basis, edit `data/MASKNAME/compose.y
 
 The following customizations can be made to both types of files:
 
-## Wireguard
+### Wireguard
 Wireguard is only partially configured by default. You will need to edit the following variables on **Lines 13-17** in `compose.yaml` to finish the setup for each mask:
 - WIREGUARD_ENDPOINT_IP
 - WIREGUARD_ENDPOINT_PORT
