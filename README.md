@@ -5,7 +5,7 @@ Using Docker, each mask is set up with its own dedicated web browser and VPN pro
 
 The web browser is [linuxserver.io's Firefox image](https://docs.linuxserver.io/images/docker-firefox/), which is encased in KasmVNC and accessed via the desired port on any other web browser. This means you can store all your masks in the cloud, on any server or VPS that has Docker installed. *(Direct X11/Wayland access not available. I am working on a companion script with a different browser image for that.)*
 
-The VPN connection is configured using [Gluetun](https://github.com/qdm12/gluetun). By default, our configuration uses Wireguard, but all other Gluetun-compatible VPN modes are supported as well. (See: [Configuring Wireguard](#configuring-wireguard) and [Other VPN Options](#other-vpn-options), below.)
+The VPN connection is implemented by forcing the browser to go through [Gluetun](https://github.com/qdm12/gluetun). By default, our configuration uses Wireguard, but all other Gluetun-compatible VPN modes are supported as well. (See: [Configuring Wireguard](#configuring-wireguard) and [Other VPN Options](#other-vpn-options), below.)
 
 ## Dependencies
 - **bash** (or compatible)
