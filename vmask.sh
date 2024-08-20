@@ -1,4 +1,6 @@
 #!/bin/bash
+# vmask.sh - Sockpuppet management for the people!
+# More info at https://github.com/HumphreyBoaGart/vmask
 
 ### All script functions are thrown in a simple case statement
 case $1 in
