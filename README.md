@@ -84,7 +84,7 @@ Wireguard is only partially configured by default. You will need to edit the fol
 - WIREGUARD_PRIVATE_KEY
 - WIREGUARD_ADDRESSES
 
-Eventually I may add Wireguard configuration to the `vmask new` command, but I wanted to leave thing flexible enough for end-users to implement all the other Gluetun VPN options that I personally do not use. (See: [Other VPN Options](#other-vpn-options), below.)
+Eventually I may add Wireguard configuration to the `vmask new` command, but I wanted to leave things flexible enough for end-users to implement all the other Gluetun VPN options that I personally do not use. (See: [Other VPN Options](#other-vpn-options), below.)
 
 ## Customization
 The default settings profile for all new masks is stored in `skel/compose.yaml`. When you create a new mask with `vmask new`, it creates a new directory for that mask in `data/`. Then it creates a copy of this file, saves it to that new directory, and populates it with the attibutes you define.
