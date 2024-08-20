@@ -106,9 +106,9 @@ By default, Firefox is accessed via HTTP on a port of your choosing, mapped to p
 To use HTTPS, replace '3000' with '3001' on **Line 8** in `compose.yaml`.
 
 ### Timezones
-Timezones for the Gluetun and Firefox containers are defined on **Lines 10 & 25** in `compose.yaml` respectively. By default they are set to `America/New_York` to match the [AMI server](https://bestpoint.institute) this script is promoted through. To throw off spies and other vultures, you may wish to define different timezones for each of your masks.
+Timezones for the Gluetun and Firefox containers are defined on **Lines 10 & 25** in `compose.yaml` respectively. By default they are set to `America/New_York` to match the [AMI server](https://github.com/bestpoint) this script is promoted through. To throw off spies and other vultures, you may wish to define different timezones for each of your masks.
 
 See [this list of valid timezones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) for a complete list of options.
 
 ## Sockpuppet Methodology
-For an analytical rundown of best practices when engaging in sockpuppetry online, read [my guide about Identity Management at the Anonymous Military Insitute](https://bestpoint.institute/diy/identity-management).
+For an analytical rundown of best practices when engaging in sockpuppetry online, [read my guide about Identity Management at the Anonymous Military Insitute](https://bestpoint.institute/diy/identity-management).
