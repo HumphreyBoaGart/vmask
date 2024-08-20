@@ -57,10 +57,12 @@ New masks are saved in an inactive state by default. To use a freshly-generated 
 #### Note on ports:
 Do not put two masks on the same port! If you are only pulling one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
 
-### Delete a mask from storage
+### Delete a mask from storage (requires sudo)
 ```
 vmask del MASKNAME
 ```
+
+If you are using rootless Docker *(as you should be)*, the persistent storage directory for the browser will be chown'd to a different userid than your own. This means you need sudo access to delete any saved masks.
 
 ### Built-in Documentation
 ```
