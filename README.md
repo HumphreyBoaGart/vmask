@@ -84,9 +84,7 @@ Wireguard is only partially configured by default. You will need to edit the fol
 - WIREGUARD_PRIVATE_KEY
 - WIREGUARD_ADDRESSES
 
-You can also set these options in the skel configuration, if you don't mind all your masks using the same VPN. However, that kinda defeats the purpose of this whole script!
-
-Eventually I may add this to the `vmask new` command, but I wanted to leave it flexible enough for end-users to implement all the other VPN options that I personally do not use. (See: [Other VPN Options](#other-vpn-options), below.)
+Eventually I may add Wireguard configuration to the `vmask new` command, but I wanted to leave thing flexible enough for end-users to implement all the other Gluetun VPN options that I personally do not use. (See: [Other VPN Options](#other-vpn-options), below.)
 
 ## Customization
 The default settings profile for all new masks is stored in `skel/compose.yaml`. When you create a new mask with `vmask new`, it creates a new directory for that mask in `data/`. Then it creates a copy of this file, saves it to that new directory, and populates it with the attibutes you define.
@@ -108,7 +106,9 @@ By default, Firefox is accessed via HTTP on a port of your choosing, mapped to p
 To use HTTPS, replace '3000' with '3001' on **Line 8** in `compose.yaml`.
 
 ### Timezones
-Timezones for the Gluetun and Firefox containers are defined on **Lines 10 & 25** in `compose.yaml` respectively. By default they are set to `America/New_York` to match the [AMI server](https://bestpoint.institute) this script is promoted through. To throw off spies and other vultures, you may wish to define different timezones for each of your masks. See [this list of valid timezones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) for a complete list of options here.
+Timezones for the Gluetun and Firefox containers are defined on **Lines 10 & 25** in `compose.yaml` respectively. By default they are set to `America/New_York` to match the [AMI server](https://bestpoint.institute) this script is promoted through. To throw off spies and other vultures, you may wish to define different timezones for each of your masks.
+
+See [this list of valid timezones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) for a complete list of options.
 
 ## Sockpuppet Methodology
 For an analytical rundown of best practices when engaging in sockpuppetry online, read [my guide about Identity Management at the Anonymous Military Insitute](https://bestpoint.institute/diy/identity-management).
