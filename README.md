@@ -5,7 +5,7 @@ Using Docker, each mask is set up with its own dedicated web browser and VPN pro
 
 The web browser is [linuxserver.io's Firefox image](https://docs.linuxserver.io/images/docker-firefox/), which is encased in KasmVNC and accessed via the desired port on any other web browser. This means you can store all your masks in the cloud, on any server or VPS that has Docker installed. *(Direct X11/Wayland access not available. I am working on a companion script with a different browser image for that.)*
 
-The VPN connection is configured using [Gluetun](https://github.com/qdm12/gluetun). By default, our configuration uses Wireguard, but all other Gluetun-compatible VPN modes are supported as well. (See: **Customization**, below.)
+The VPN connection is configured using [Gluetun](https://github.com/qdm12/gluetun). By default, our configuration uses Wireguard, but all other Gluetun-compatible VPN modes are supported as well. (See: [Configuring Wireguard](#configuring-wireguard) and [Other VPN Options](#other-vpn-options), below.)
 
 ## Dependencies
 - **bash** (or compatible)
@@ -72,7 +72,7 @@ If you are running vmask locally, you can access your mask's browser instance by
 
 For remote vmask installs, replace localhost with your server's IP address.
 
-**IMPORTANT:** I highly recommend using HTTPS for remote use. (See: **Enabling SSL**, below.)
+**IMPORTANT:** I highly recommend using HTTPS for remote use. (See: [Enabling SSL](#enabling-ssl), below.)
 
 ## Configuring Wireguard
 Wireguard is only partially configured by default. You will need to edit the following variables on **Lines 13-17** in `compose.yaml` to finish the setup for each mask:
@@ -84,7 +84,7 @@ Wireguard is only partially configured by default. You will need to edit the fol
 
 You can also set these options in the skel configuration, if you don't mind all your masks using the same VPN. However, that kinda defeats the purpose of this whole script!
 
-Eventually I may add this to the `vmask new` command, but I wanted to leave it flexible enough for end-users to implement all the other VPN options that I personally do not use. (See: **Other VPN Options**, below.)
+Eventually I may add this to the `vmask new` command, but I wanted to leave it flexible enough for end-users to implement all the other VPN options that I personally do not use. (See: [Other VPN Options](#other-vpn-options), below.)
 
 ## Customization
 The default settings profile for all new masks is stored in `skel/compose.yaml`. When you create a new mask with `vmask new`, it creates a new directory for that mask in `data/`. Then it creates a copy of this file, saves it to that new directory, and populates it with the attibutes you define.
@@ -104,3 +104,6 @@ Gluetun supports a myriad of VPN options and providers, all of which can be impl
 By default, Firefox is accessed via HTTP on a port of your choosing, mapped to port 3000 within the container. However, linuxserver.io provides the option for HTTPS access on internal port 3001, which is **highly recommended** if you are not using this on a local machine.
 
 To use HTTPS, replace '3000' with '3001' on **Line 8** in `compose.yaml`.
+
+## Sockpuppet Methodology
+For an analytical rundown of best practices when engaging in sockpuppetry online, read [my guide about Identity Management at the Anonymous Military Insitute](https://bestpoint.institute/diy/identity-management).
