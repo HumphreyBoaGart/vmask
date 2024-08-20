@@ -1,4 +1,6 @@
 # vmask
+![vmask.sh](https://raw.githubusercontent.com/HumphreyBoaGart/vmask/master/banner.png)
+
 **vmask.sh** (short for **v**nc **mask**) is a shell script utility for deploying and managing sockpuppets, which we will also refer to here as ***masks***.
 
 Using Docker, each mask is set up with its own dedicated web browser and VPN profile. This lets you easily set aside compartmentalized environments for each of your sockpuppets, ensuring that no two sockpuppets connect to the internet from the same IP address.
