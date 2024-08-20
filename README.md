@@ -1,5 +1,5 @@
 # vmask
-**vmask** is a shell script utility for deploying and managing sockpuppets, which we will also refer to here as ***masks***.
+**vmask.sh** *(short for **v**nc **mask**)*is a shell script utility for deploying and managing sockpuppets, which we will also refer to here as ***masks***.
 
 Using Docker, each mask is set up with its own dedicated web browser and VPN profile. This lets you easily set aside compartmentalized environments for each of your sockpuppets, ensuring that no two sockpuppets connect to the internet from the same IP address.
 
@@ -55,7 +55,7 @@ vmask new MASKNAME PORT
 New masks are saved in an inactive state by default. To use a freshly-generated mask, you will need to run `vmask on` after running `vmask new`.
 
 #### Note on ports:
-Do not put two masks on the same port! If you are only pulling out one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
+Do not put two masks on the same port! If you are only pulling one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
 
 ### Delete a mask from storage
 ```
