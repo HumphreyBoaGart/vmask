@@ -52,6 +52,8 @@ Or, to bypass interactive mode:
 vmask new MASKNAME PORT
 ```
 
+New masks are saved in an inactive state by default. To use a freshly-generated mask, you will need to run `vmask on` after running `vmask new`.
+
 #### Note on ports:
 Do not put two masks on the same port! If you are only pulling out one mask out of storage at a time, this is not a big deal. HOWEVER, if you are planning on activating multiple masks at once, you will run into problems if more than one mask is configured to use the same port.
 
