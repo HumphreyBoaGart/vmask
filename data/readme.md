@@ -1,6 +1,6 @@
 # vmask data directory
 
-This is the directory in which `vmask.sh` saves compartmentalized mask configurations and their associated browser data. When you start generating new masks, they will each get their own dedicated subdirectory within this directory.
+This is the directory in which `vmask.sh` saves each mask's configuration and associated browser data. When you start generating new masks, they will each get their own dedicated subdirectory within this directory.
 
 Each mask subdirectory contains:
 
